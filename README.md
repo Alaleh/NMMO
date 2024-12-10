@@ -7,7 +7,9 @@ Installing the dependencies:
 Example of a command to run the code:
 
 `python -W ignore main.py --problem RCBD --n_var 3 --n_obj 2 --algo BINOM --look_ahead_horizon 2  --n_iter 110 --n_init 5  --n_seed 1`
+
 `python -W ignore main.py --problem RCBD --n_var 3 --n_obj 2 --algo NMMO --look_ahead_horizon 2  --nmmo_method LbJointDet --n_iter 110 --n_init 5  --n_seed 1`
+
 `python -W ignore main.py --problem RCBD --n_var 3 --n_obj 2 --algo NMMO --look_ahead_horizon 2  --nmmo_method LbNestedDet  --n_iter 110 --n_init 5  --n_seed 1`
 
 The problem name, the number of variable and objectives, algorithm name, algorithm-related parameters, number of iterations, number of initial points, and number of seeds can be changed.
