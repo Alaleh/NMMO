@@ -1,5 +1,5 @@
 from botorch.utils.sampling import draw_sobol_samples
-from botorch.test_functions.multi_objective import ZDT3
+from botorch.test_functions.multi_objective import ZDT3, DTLZ1, DTLZ2, DTLZ3
 from mobo.utils.benchmarks import FBTD, GTD, RCBD, WBD, DBD, MOF
 
 
@@ -19,6 +19,11 @@ def get_test_problem(num, d=0, M=0, maximize=True):
                  "DBD": DBD(negate=maximize),
                  "GTD": GTD(negate=maximize),
                  "MOF": MOF(negate=maximize)}
+
+    if M < d:
+        test_sets["DTLZ1"] = DTLZ1(dim=d, num_objectives=M, negate=maximize)
+        test_sets["DTLZ2"] = DTLZ2(dim=d, num_objectives=M, negate=maximize)
+        test_sets["DTLZ3"] = DTLZ3(dim=d, num_objectives=M, negate=maximize)
 
     if num not in test_sets:
         raise "Undefined problem"
